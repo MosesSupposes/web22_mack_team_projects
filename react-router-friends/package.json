@@ -2,5 +2,8 @@
   "name": "react-router-friends",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  }
 }
