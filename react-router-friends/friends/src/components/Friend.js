@@ -1,8 +1,7 @@
 import React from 'react';
 
 const Friend = (props) => {
-    const {id, name, currently_dating, quotes} = props.friend
-    
+    const {name, currently_dating, quotes} = props.friend
     return (
         <div>
             <h2>{name}</h2>
