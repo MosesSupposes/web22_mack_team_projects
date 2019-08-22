@@ -5,7 +5,7 @@ const FriendForm = (props) => {
 
     const handleChange = (event) => {
         if (event.target.name === "quotes") {
-        setNewFriend({...newFriend, quotes:[...newFriend.quotes, event.target.value]})
+        setNewFriend({...newFriend, quotes: [event.target.value]})
         } else {
         setNewFriend({...newFriend, [event.target.name]:event.target.value})    
         }
