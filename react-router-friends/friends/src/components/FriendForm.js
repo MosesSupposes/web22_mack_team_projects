@@ -4,12 +4,23 @@ const FriendForm = (props) => {
     const [newFriend, setNewFriend] = useState({name: "", currently_dating: "", quotes: []})
 
     const handleChange = (event) => {
-        setNewFriend({...newFriend, [event.target.name]:event.target.value})
+        if (event.target.name === "quotes") {
+        setNewFriend({...newFriend, quotes:[...newFriend.quotes, event.target.value]})
+        } else {
+        setNewFriend({...newFriend, [event.target.name]:event.target.value})    
+        }
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const submitNewFriend = {...newFriend, id:Date.now()}
+        props.addNewFriend(submitNewFriend)
+        setNewFriend({name: "", currently_dating: "", quotes: []})
     }
 
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="name"> Name
                     <input type="text" placeholder="name" value={newFriend.name} name="name" onChange={handleChange} />
                 </label>

@@ -9,6 +9,11 @@ import FriendForm from './components/FriendForm.js';
 function App() {
   const [friends, setFriends] = useState([])
 
+  const addNewFriend = (newFriend) => {
+    // setFriends(friends.concat(newFriend))
+    setFriends([...friends, newFriend])
+  }
+
   useEffect(() => {
     axios.get('http://localhost:5000/api/friends/')
     .then(response => {
@@ -17,7 +22,7 @@ function App() {
   }, [])
   return (
     <div className="App">
-     <FriendForm />
+     <FriendForm addNewFriend={addNewFriend}/>
      <Route exact path="/" render={(props) => <FriendList {...props} friends={friends}/>}/>
      <Route path='/friends/:id' render={(props) => <FriendPage {...props} friends={friends}/>}/>
     </div>
