@@ -8,9 +8,6 @@ import FriendForm from './components/FriendForm.js';
 
 import './App.css';
 
-import FriendList from './components/FriendList.js';
-import FriendPage from './components/FriendPage.js';
-
 export default function App() {
   const [friends, setFriends] = useState([])
 
